@@ -1,3 +1,6 @@
+import re
+
+
 class Automata:
     def __init__(self, file):
         self.file = file
@@ -15,7 +18,7 @@ class Automata:
 
             # get the settings of respective automata
             # TODO: handling of multiple automatas
-            
+            configuration = re.sub(r'#.*?\n', '', configuration)
             automata_settings = configuration[
                 configuration.find("automata {") + 10
                 :
@@ -30,17 +33,25 @@ class Automata:
             settings_dict = {}
             for setting in automata_settings:
                 if setting != '':
-                    name, value = setting.split("=")
+                    
+                    try:
+                        name, value = setting.split("=")
+                    except ValueError:
+                        raise ValueError(f"Invalid setting format: {setting}")
                     name = name.strip()
                     value = value.strip()
                     settings_dict[name] = value
 
             # delete the square brackets then transform the information into a list
-            settings_dict['states'] = list(settings_dict['states'][1:-1].split(", "))
-            settings_dict['alphabet'] = list(settings_dict['alphabet'][1:-1].split(", "))
-            settings_dict['rules'] = [rule.split(',') for rule in settings_dict['rules'][1:-1].split(' ')]
-            settings_dict['rules'] = [item for item in settings_dict['rules'] if item != ['']]
-            
+            try:
+                settings_dict['states'] = list(settings_dict['states'][1:-1].split(", "))
+                settings_dict['alphabet'] = list(settings_dict['alphabet'][1:-1].split(", "))
+                settings_dict['rules'] = [rule.split(',') for rule in settings_dict['rules'][1:-1].split(' ')]
+                settings_dict['rules'] = [item for item in settings_dict['rules'] if item != ['']]
+            except KeyError as e:
+                raise ValueError(f"Configuration incorrect: missing key {e}")
+            except Exception as e:
+                raise ValueError(f"Configuration incorrect: {e}")
             # store rules in a dictionary structure for easier change of state
             state_change_structure = {}
             for rule in settings_dict['rules']:
@@ -56,8 +67,11 @@ class Automata:
 
     def run_automata(self, data) -> None:
         # getting the automata configuration from file
-        automata_config = self.load_automata()
-        
+        try:
+            automata_config = self.load_automata()
+        except Exception as e:
+            print(f"Error loading automata configuration: {e}")
+            return
         # setting the start and end states
         start_state = automata_config['start']
         end_state = automata_config['accept']
