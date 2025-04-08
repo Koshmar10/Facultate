@@ -1,0 +1,3 @@
+#!/bin/bash
+
+kitty --title "game" python3 /home/petru/Facultate/Lab_LFA/gamedfa/gameTUI.py

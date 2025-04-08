@@ -103,7 +103,6 @@ ostream& operator<<(ostream& out, Car& car) {
 }
 
 int main()
-
 {
     return 0;
 }

@@ -1,0 +1,51 @@
+[(0, 'Entrance', None, None),
+ (1, 'SecretRoom', 'left', 'Entrance'),
+ (2, 'Dungeon', 'down', 'SecretRoom'),
+ (3, 'Library', 'up', 'SecretRoom'),
+ (4, 'Kitchen', 'left', 'Dungeon'),
+ (5, 'Library1', 'left', 'Library'),
+ (6, 'SecretRoom1', 'right', 'Library'),
+ (7, 'SecretRoom2', 'up', 'Kitchen'),
+ (8, 'Library2', 'up', 'Library1'),
+ (9, 'SecretRoom3', 'up', 'SecretRoom1'),
+ (10, 'Dungeon1', 'left', 'SecretRoom2'),
+ (11, 'Bathroom', 'right', 'Library2'),
+ (12, 'SecretRoom4', 'left', 'Library2'),
+ (13, 'Exit', 'left', 'SecretRoom4')]
+{'Bathroom': (-1, 2),
+ 'Dungeon': (-1, -1),
+ 'Dungeon1': (-3, 0),
+ 'Entrance': (0, 0),
+ 'Exit': (-4, 2),
+ 'Kitchen': (-2, -1),
+ 'Library': (-1, 1),
+ 'Library1': (-2, 1),
+ 'Library2': (-2, 2),
+ 'SecretRoom': (-1, 0),
+ 'SecretRoom1': (0, 1),
+ 'SecretRoom2': (-2, 0),
+ 'SecretRoom3': (0, 2),
+ 'SecretRoom4': (-3, 2)}
+{'Bathroom': ['left'],
+ 'Dungeon': ['up', 'left'],
+ 'Dungeon1': ['right'],
+ 'Entrance': ['left'],
+ 'Exit': ['right'],
+ 'Kitchen': ['right', 'up'],
+ 'Library': ['down', 'left', 'right'],
+ 'Library1': ['right', 'up'],
+ 'Library2': ['down', 'right', 'left'],
+ 'SecretRoom': ['right', 'down', 'up'],
+ 'SecretRoom1': ['left', 'up'],
+ 'SecretRoom2': ['down', 'left'],
+ 'SecretRoom3': ['down'],
+ 'SecretRoom4': ['right', 'left']}
+
+    Exit------SecretRoom4---Library2-----Bathroom    SecretRoom3
+                               |                         |       
+                            Library1------Library----SecretRoom1
+                                            |                    
+               Dungeon1----SecretRoom2   SecretRoom----Entrance
+                               |            |                    
+                            Kitchen------Dungeon
+                                                                 
