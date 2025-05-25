@@ -1,0 +1,11 @@
+automata {
+    states = [q1, q2,];
+    alphabet = [0]; 
+    rules = [
+        q1,0,q2
+        q2,0,q1
+        ]; 
+        
+    start = q1;
+    accept = [q1];
+}

@@ -1,0 +1,15 @@
+    states = [ Entrance, Dungeon, Armory, Library, Exit, SecretRoom ];
+    alphabet = [ left, up, right, down ]; 
+    stack_alphabet = [ sword, key];
+    # ~ = epsilon
+    rules = [
+        Entrance,~,up,~,Library
+        Entrance,~,left,key,SecretRoom
+        Entrance,~,right,sword,SecretRoom
+        SecretRoom,~,right,~,Entrance
+        SecretRoom,~,left,~,Entrance
+        Library,sword,up,~,Dungeon
+        Dungeon,key,up,~,Exit
+        ]; 
+    start = Entrance;
+    accept = [Exit];

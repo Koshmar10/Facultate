@@ -1,0 +1,33 @@
+automata{
+    states = [ Entrance, Kitchen, hollway, Library, Exit, SecretRoom ];
+    alphabet = [ left, up, right, down ]; 
+    rules = [
+        Entrance,up,Kitchen 
+        Entrance,left,Entrance
+        Entrance,right,Entrance
+        Entrance,down,Entrance 
+        Kitchen,up,SecretRoom
+        Kitchen,left,Kitchen
+        Kitchen,right,hollway
+        Kitchen,down,Entrance
+        SecretRoom,down,Kitchen
+        SecretRoom,left,SecretRoom
+        SecretRoom,right,SecretRoom
+        SecretRoom,up,SecretRoom
+        hollway,down,hollway
+        hollway,left,Kitchen
+        hollway,right,Library
+        hollway,up,Exit
+        Exit,down,hollway
+        Exit,up,Exit
+        Exit,left,Exit
+        Exit,right,Exit
+        Library,left,hollway
+        Library,right,Library
+        Library,up,Library
+        Library,down,Library
+        
+        ]; 
+    start = Entrance;
+    accept = [Exit];
+}
