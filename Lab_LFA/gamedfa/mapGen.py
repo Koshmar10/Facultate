@@ -2,7 +2,15 @@ import automata
 import random
 from collections import deque
 import pprint as p
-room_names = ['Entrance', 'Kitchen', 'Dungeon', 'Library', 'Exit', 'SecretRoom', 'Bathroom']
+room_names = ['Entrance', 'Kitchen', 'Dungeon', 'Library', 'Exit', 'SecretRoom', 'Bathroom', "Armory"]
+requirements = {'Entrance': {'requires': '~', 'aquires': '~'},
+                    'Kitchen': {'requires': '~', 'aquires': '~'},
+                    'Dungeon': {'requires': 'sword', 'aquires': '~'},
+                    'Bathroom': {'requires': '~', 'aquires': '~'},
+                    'SecretRoom': {'requires': '~', 'aquires': 'key'},
+                    'Armory': {'requires': '~', 'aquires': 'sowrd'},
+                    'Library': {'requires': '~', 'aquires': '~'},
+                    'Exit': {'requires': 'key', 'aquires': '~'}}
 link_points = ['left', 'up', 'right', 'down']
 roomConnections={}
 
@@ -97,7 +105,10 @@ def getUniqueName(gameMap, roomName):
             newName = f'{roomName}{i}'
             i+=1
     return newName
-
+def getGeneralName(name):
+    while name[-1].isdigit():
+        name = name[:-1]
+    return name
 def oppositeDirection(direction):
     if direction == 'left':
         return 'right'
@@ -185,8 +196,8 @@ def generateMap(rooms, maxRoomCount):
             break
     
     return (gameMap, roomxy)
-def generateAutomataConfig(mapItems):
-    config = 'automata {'
+def generateAutomataConfig(mapItems, reqierments: dict):
+
     states, alphabet, rules = 'states = [ ', 'alphabet = [ ', 'rules = [ '
     for item in mapItems[:-1]:
         states += f'{item[1]}, '
@@ -216,20 +227,30 @@ def generateAutomataConfig(mapItems):
                 transitions[direction] = state
     #turn states into text
     ruleString=''
+
     for initial, transitions in ruleDict.items():
         for transition, next in transitions.items():
-            ruleString += f'{initial},{transition},{next} '
+            ruleString += f'{initial},{reqierments[getGeneralName(initial)]['requires']},{transition},{reqierments[getGeneralName(next)]['aquires']},{next} '
     rules +=  ruleString + '];'
+    stack_alphabet = 'stack_alphabet = [ '
+    x = set()
+    for item in reqierments.values():
+        x.add(item['requires'])
+        x.add(item['aquires'])
+    x= list(x)
+    for item in x[:-1]:
+        stack_alphabet += f'{str(item)}, '
+    stack_alphabet += f'{str(item[-1])} ];'
+
     start = 'start = Entrance;'
     accept = 'accept = [ Exit ];'
-    config += states + alphabet + rules + start + accept + ' }'
-    print(config)
+    config = states + alphabet+ stack_alphabet + rules + start + accept
+    p.pprint(config)
     return config
 
-    pass
 if __name__ == '__main__':
     gameMap = generateMap(room_names, 12)
-    generateAutomataConfig(gameMap[0])
+    generateAutomataConfig(gameMap[0], requirements)
     #p.pprint(gameMap[0])
     #p.pprint(gameMap[1])
     printMap('/home/petru/Facultate/Lab_LFA/gamedfa/map.txt', gameMap[0], gameMap[1])

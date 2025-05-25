@@ -1,51 +1,50 @@
 [(0, 'Entrance', None, None),
- (1, 'SecretRoom', 'left', 'Entrance'),
- (2, 'Dungeon', 'down', 'SecretRoom'),
- (3, 'Library', 'up', 'SecretRoom'),
- (4, 'Kitchen', 'left', 'Dungeon'),
- (5, 'Library1', 'left', 'Library'),
- (6, 'SecretRoom1', 'right', 'Library'),
- (7, 'SecretRoom2', 'up', 'Kitchen'),
- (8, 'Library2', 'up', 'Library1'),
- (9, 'SecretRoom3', 'up', 'SecretRoom1'),
- (10, 'Dungeon1', 'left', 'SecretRoom2'),
- (11, 'Bathroom', 'right', 'Library2'),
- (12, 'SecretRoom4', 'left', 'Library2'),
- (13, 'Exit', 'left', 'SecretRoom4')]
-{'Bathroom': (-1, 2),
- 'Dungeon': (-1, -1),
- 'Dungeon1': (-3, 0),
+ (1, 'Library', 'left', 'Entrance'),
+ (2, 'SecretRoom', 'down', 'Library'),
+ (3, 'Library1', 'up', 'Library'),
+ (4, 'Kitchen', 'right', 'SecretRoom'),
+ (5, 'Dungeon', 'left', 'SecretRoom'),
+ (6, 'Dungeon1', 'right', 'Library1'),
+ (7, 'SecretRoom1', 'down', 'Kitchen'),
+ (8, 'Bathroom', 'up', 'Dungeon'),
+ (9, 'SecretRoom2', 'up', 'Dungeon1'),
+ (10, 'Armory', 'left', 'SecretRoom1'),
+ (11, 'Armory1', 'right', 'SecretRoom1'),
+ (12, 'Exit', 'up', 'Armory1')]
+{'Armory': (-1, -2),
+ 'Armory1': (1, -2),
+ 'Bathroom': (-2, 0),
+ 'Dungeon': (-2, -1),
+ 'Dungeon1': (0, 1),
  'Entrance': (0, 0),
- 'Exit': (-4, 2),
- 'Kitchen': (-2, -1),
- 'Library': (-1, 1),
- 'Library1': (-2, 1),
- 'Library2': (-2, 2),
- 'SecretRoom': (-1, 0),
- 'SecretRoom1': (0, 1),
- 'SecretRoom2': (-2, 0),
- 'SecretRoom3': (0, 2),
- 'SecretRoom4': (-3, 2)}
-{'Bathroom': ['left'],
- 'Dungeon': ['up', 'left'],
- 'Dungeon1': ['right'],
+ 'Exit': (1, -1),
+ 'Kitchen': (0, -1),
+ 'Library': (-1, 0),
+ 'Library1': (-1, 1),
+ 'SecretRoom': (-1, -1),
+ 'SecretRoom1': (0, -2),
+ 'SecretRoom2': (0, 2)}
+{'Armory': ['right'],
+ 'Armory1': ['left', 'up'],
+ 'Bathroom': ['down'],
+ 'Dungeon': ['right', 'up'],
+ 'Dungeon1': ['left', 'up'],
  'Entrance': ['left'],
- 'Exit': ['right'],
- 'Kitchen': ['right', 'up'],
- 'Library': ['down', 'left', 'right'],
- 'Library1': ['right', 'up'],
- 'Library2': ['down', 'right', 'left'],
- 'SecretRoom': ['right', 'down', 'up'],
- 'SecretRoom1': ['left', 'up'],
- 'SecretRoom2': ['down', 'left'],
- 'SecretRoom3': ['down'],
- 'SecretRoom4': ['right', 'left']}
+ 'Exit': ['down'],
+ 'Kitchen': ['left', 'down'],
+ 'Library': ['right', 'down', 'up'],
+ 'Library1': ['down', 'right'],
+ 'SecretRoom': ['up', 'right', 'left'],
+ 'SecretRoom1': ['up', 'left', 'right'],
+ 'SecretRoom2': ['down']}
 
-    Exit------SecretRoom4---Library2-----Bathroom    SecretRoom3
-                               |                         |       
-                            Library1------Library----SecretRoom1
-                                            |                    
-               Dungeon1----SecretRoom2   SecretRoom----Entrance
-                               |            |                    
-                            Kitchen------Dungeon
-                                                                 
+                          SecretRoom2
+                               |                    
+               Library1-----Dungeon1
+                  |                                 
+  Bathroom      Library-----Entrance
+     |            |                                 
+  Dungeon----SecretRoom-----Kitchen        Exit
+                               |            |       
+                Armory-----SecretRoom1----Armory1
+                                                    

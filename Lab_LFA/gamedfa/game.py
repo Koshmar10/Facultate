@@ -34,7 +34,7 @@ def game_loop(game_rules):
         if currentRoom in game_rules['accept']:
             print("You won the game")
         else:
-            print("Ai pierdut panaramo")
+            print("Ai pierdut")
         
 
 # Initialize the Automata class with the file 'automata.txt'

@@ -1,6 +1,6 @@
 import curses, mapGen
 import pprint as p
-import automata as aut
+from pda import Pda
 import re
 from pyfiglet import Figlet
 cmd_win , map_win, screen = None,None, None
@@ -12,6 +12,7 @@ class GameEngine:
         self.automata = automata
         self.game_rules = automata.get_settings()
         self.map_data = map_data
+        self.game_stack = ['~']
         self.player_position = self.game_rules['start'] # Default starting position
 
     def move_player(self, direction):
@@ -110,16 +111,52 @@ class GameEngine:
             return
 
     def update_state(self, input_symbol):
-        debug_file.write(self.player_position+'\n')
+        debug_file.write(f"Current position: {self.player_position}, Input: {input_symbol}\n")
+        debug_file.write(f"Current stack: {self.game_stack}\n")
+
         if input_symbol == curses.KEY_UP:
-            self.player_position = self.game_rules['rules'][self.player_position]['up'][0]
+            input_symbol = 'up'
         elif input_symbol == curses.KEY_DOWN:
-            self.player_position = self.game_rules['rules'][self.player_position]['down'][0]
+            input_symbol = 'down'
         elif input_symbol == curses.KEY_LEFT:
-            self.player_position = self.game_rules['rules'][self.player_position]['left'][0]
+            input_symbol = 'left'
         elif input_symbol == curses.KEY_RIGHT:
-            self.player_position = self.game_rules['rules'][self.player_position]['right'][0]
-        #curses.napms(200)
+            input_symbol = 'right'
+        
+        # Ensure a transition rule exists for the current state and input
+        if self.player_position not in self.game_rules['rules'] or \
+           input_symbol not in self.game_rules['rules'][self.player_position]:
+            # No valid transition for this input from this state.
+            # Optionally, provide feedback to the user, e.g., curses.flash()
+            debug_file.write(f"No transition rule for state {self.player_position} with input {input_symbol}\n")
+            return
+
+        transition_rules = self.game_rules['rules'][self.player_position][input_symbol]
+        pop_sym = transition_rules['pop_symbol']
+        push_sym = transition_rules['push_symbol']
+        next_state = transition_rules['next_state']
+
+        debug_file.write(f"Transition rule found: next_state={next_state}, pop={pop_sym}, push={push_sym}\n")
+
+        # Condition to allow transition:
+        # 1. The rule requires an epsilon pop ('~'), meaning no item is consumed from the stack.
+        # 2. The rule requires a specific item to be popped, and that item is at the top of the stack.
+        can_transition = False
+        if pop_sym == '~':
+            can_transition = True
+        elif self.game_stack and self.game_stack[-1] == pop_sym: # Check stack is not empty and top matches
+            can_transition = True
+        
+        if can_transition:
+            self.player_position = next_state
+            if pop_sym != '~' and (self.game_stack and self.game_stack[-1] == pop_sym) : # Ensure we only pop if it was an item match
+                self.game_stack.pop()
+            if push_sym != '~':
+                self.game_stack.append(push_sym)
+            debug_file.write(f"Moved to: {self.player_position}, New stack: {self.game_stack}\n")
+        else:
+            debug_file.write(f"Transition blocked: pop_sym='{pop_sym}', stack_top='{self.game_stack[-1] if self.game_stack else None}'\n")
+            # Optionally, provide feedback for a blocked move, e.g., curses.flash()
         
     def render_map(self):
         map_win.clear()
@@ -148,6 +185,7 @@ class GameEngine:
             
             # debug_file.write(line + '\n')
             mapRows[i] = line
+        map_win.addstr(3, 2, " ".join(self.game_stack))
         for i, line in enumerate(mapRows):    
             try:
                 if focus_row == i:
@@ -180,13 +218,23 @@ def find_current_room(text, pattern):
 
 def main(stdscr):
     global map_win, cmd_win, screen
+    rooms = ['Entrance', 'Kitchen', 'Dungeon', 'Library', 'Exit', 'SecretRoom', 'Bathroom', 'Armory']
+    requirements = {'Entrance': {'requires': '~', 'aquires': '~'},
+                    'Kitchen': {'requires': '~', 'aquires': '~'},
+                    'Dungeon': {'requires': 'sword', 'aquires': '~'},
+                    'Bathroom': {'requires': '~', 'aquires': '~'},
+                    'SecretRoom': {'requires': '~', 'aquires': 'key'},
+                    'Armory': {'requires': '~', 'aquires': 'sword'},
+                    'Library': {'requires': '~', 'aquires': '~'},
+                    'Exit': {'requires': 'key', 'aquires': '~'}}
     # Open a file for debugging
     curses.start_color()
     curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)  # Define color pair 1
-    m=mapGen.getMapInfo(['Entrance', 'Kitchen', 'Dungeon', 'Library', 'Exit', 'SecretRoom', 'Bathroom'], 105)
-    conf = mapGen.generateAutomataConfig(m[1])
-    engine = GameEngine(aut.Automata(conf), m[0])
-    # debug_file.write('\n' + p.pformat(aut.Automata(conf).get_settings()) + '\n')
+    m=mapGen.getMapInfo(rooms, 15)
+    conf = mapGen.generateAutomataConfig(m[1], reqierments=requirements)
+    p.pprint(conf)
+    debug_file.write('\n' + p.pformat(conf + '\n'))
+    engine = GameEngine(Pda(conf), m[0])
 
     curses.curs_set(0)  # Disable the cursor
     stdscr.clear()  # Clear the screen
