@@ -1,0 +1,322 @@
+COMMIT ;
+ROLLBACK ;
+--orase
+INSERT INTO ORASE (NUME_ORAS) VALUES ('Cluj-Napoca');
+INSERT INTO ORASE (NUME_ORAS) VALUES ('Bucuresti');
+INSERT INTO ORASE (NUME_ORAS) VALUES ('Timisoara');
+INSERT INTO ORASE (NUME_ORAS) VALUES ('Iasi');
+INSERT INTO ORASE (NUME_ORAS) VALUES ('Constanta');
+
+--coordonatori
+INSERT INTO COORDONATORI (ID_COORDONATOR, NUME_COORDONATOR, CNP_COORDONATOR, EMAIL_COORDONATOR, TELEFON_COORDONATOR) VALUES (1, 'Andrei Popescu', '1980101123456', 'andrei.popescu@example.com', '0721598747');
+
+INSERT INTO COORDONATORI (ID_COORDONATOR, NUME_COORDONATOR, CNP_COORDONATOR, EMAIL_COORDONATOR, TELEFON_COORDONATOR) VALUES (2, 'Maria Ionescu', '2870505123456', 'maria.ionescu@example.com', '0721950162');
+
+INSERT INTO COORDONATORI (ID_COORDONATOR, NUME_COORDONATOR, CNP_COORDONATOR, EMAIL_COORDONATOR, TELEFON_COORDONATOR) VALUES (3, 'Ionel Dumitrescu', '1800301123456', 'ionel.dumitrescu@example.com', '0721843303');
+
+INSERT INTO COORDONATORI (ID_COORDONATOR, NUME_COORDONATOR, CNP_COORDONATOR, EMAIL_COORDONATOR, TELEFON_COORDONATOR) VALUES (4, 'Elena Radu', '2841208123456', 'elena.radu@example.com', '0721873004');
+INSERT INTO COORDONATORI (ID_COORDONATOR, NUME_COORDONATOR, CNP_COORDONATOR, EMAIL_COORDONATOR, TELEFON_COORDONATOR) VALUES (5, 'George Stan', '1900601123456', 'george.stan@example.com', '0721299825');
+INSERT INTO COORDONATORI (ID_COORDONATOR, NUME_COORDONATOR, CNP_COORDONATOR, EMAIL_COORDONATOR, TELEFON_COORDONATOR) VALUES (6, 'Ana Marinescu', '2910905123456', 'ana.marinescu@example.com', '0721763301');
+INSERT INTO COORDONATORI (ID_COORDONATOR, NUME_COORDONATOR, CNP_COORDONATOR, EMAIL_COORDONATOR, TELEFON_COORDONATOR) VALUES (7, 'Vasile Gheorghiu', '1790402123456', 'vasile.gheorghiu@example.com', '0721763497');
+
+--Bucuresti
+INSERT INTO SCOLI (ID_SCOALA, ID_COORDONATOR, NUME_ORAS, NUME_SCOALA, ADRESA) VALUES (1, 21, 'Bucuresti', 'BitSchool Drumul Taberei', 'Bd. Drumul Tabaerei, nr 79');
+
+INSERT INTO SCOLI (ID_SCOALA, ID_COORDONATOR, NUME_ORAS, NUME_SCOALA, ADRESA) VALUES (2, 21, 'Bucuresti', 'Bitschool Dorobanți', 'Calea Dorobanți, nr. 100');
+
+-- Cluj-Napoca
+INSERT INTO SCOLI (ID_SCOALA, ID_COORDONATOR, NUME_ORAS, NUME_SCOALA, ADRESA) VALUES (3, 22, 'Cluj-Napoca', 'Bitschool Mănăștur', 'Str. Primăverii, nr. 10');
+
+INSERT INTO SCOLI (ID_SCOALA, ID_COORDONATOR, NUME_ORAS, NUME_SCOALA, ADRESA) VALUES (4, 22, 'Cluj-Napoca', 'Bitschool Gheorgheni', 'Str. Constantin Brâncuși, nr. 45');
+
+-- Timișoara
+INSERT INTO SCOLI (ID_SCOALA, ID_COORDONATOR, NUME_ORAS, NUME_SCOALA, ADRESA) VALUES (5, 23, 'Timisoara', 'Bitschool Iosefin', 'Str. Iosif Vulcan, nr. 12');
+
+INSERT INTO SCOLI (ID_SCOALA, ID_COORDONATOR, NUME_ORAS, NUME_SCOALA, ADRESA) VALUES (6, 24, 'Timisoara', 'Bitschool Soarelui', 'Bd. Sudului, nr. 33');
+
+-- Iași
+INSERT INTO SCOLI (ID_SCOALA, ID_COORDONATOR, NUME_ORAS, NUME_SCOALA, ADRESA) VALUES (7, 25, 'Iasi', 'Bitschool Copou', 'Str. Sărărie, nr. 15');
+
+INSERT INTO SCOLI (ID_SCOALA, ID_COORDONATOR, NUME_ORAS, NUME_SCOALA, ADRESA) VALUES (8, 25, 'Iasi', 'Bitschool Tătărași', 'Str. Vasile Lupu, nr. 88');
+
+-- Constanța
+INSERT INTO SCOLI (ID_SCOALA, ID_COORDONATOR, NUME_ORAS, NUME_SCOALA, ADRESA) VALUES (9, 27, 'Constanta', 'Bitschool Tomis Nord', 'Str. Suceava, nr. 5');
+
+INSERT INTO SCOLI (ID_SCOALA, ID_COORDONATOR, NUME_ORAS, NUME_SCOALA, ADRESA) VALUES (10, 26, 'Constanta', 'Bitschool Faleză Nord', 'Str. Unirii, nr. 20');
+
+
+--Limbaje
+INSERT INTO LIMBAJE (nume_limbaj) VALUES ('Python');
+INSERT INTO LIMBAJE (nume_limbaj) VALUES ('Java');
+INSERT INTO LIMBAJE (nume_limbaj) VALUES ('JavaScript');
+INSERT INTO LIMBAJE (nume_limbaj) VALUES ('C++');
+INSERT INTO LIMBAJE (nume_limbaj) VALUES ('Rust');
+INSERT INTO LIMBAJE (nume_limbaj) VALUES ('HTML & CSS');
+
+--Cursuri
+INSERT INTO CURSURI (nume_curs, limbaj_curs, descriere_curs, nivel_curs, durata_curs)
+VALUES ('Introducere in Python', 'Python', 'Bazele programarii in Python', 'Incepator', 8);
+
+INSERT INTO CURSURI (nume_curs, limbaj_curs, descriere_curs, nivel_curs, durata_curs)
+VALUES ('Programare OOP in Java', 'Java', 'Concepte de programare orientata pe obiect', 'Intermediar', 8);
+
+INSERT INTO CURSURI (nume_curs, limbaj_curs, descriere_curs, nivel_curs, durata_curs)
+VALUES ('Web Development', 'HTML & CSS', 'Creare site-uri statice cu HTML si CSS', 'Incepator', 5);
+
+INSERT INTO CURSURI (nume_curs, limbaj_curs, descriere_curs, nivel_curs, durata_curs)
+VALUES ('Algoritmica in C++', 'C++', 'Structuri de date si algoritmi fundamentali', 'Avansat', 6);
+
+INSERT INTO CURSURI (nume_curs, limbaj_curs, descriere_curs, nivel_curs, durata_curs)
+VALUES ('Frontend cu JavaScript', 'JavaScript', 'Proiecte interactive cu JavaScript', 'Intermediar', 6);
+
+INSERT INTO CURSURI (nume_curs, limbaj_curs, descriere_curs, nivel_curs, durata_curs)
+VALUES ('Programare Low Level', 'C++', 'Prograare de drivere si aplicatii low level', 'Intermediar', 6);
+
+
+--Profesori
+INSERT INTO PROFESORI (ID_PROFESOR, cnp_profesor, email_profesor, telefon_profesor, nume_profesor) VALUES (1, '1980101012345', 'andreea.popa@example.com', '0723111222', 'Andreea Popa');
+INSERT INTO PROFESORI (ID_PROFESOR, cnp_profesor, email_profesor, telefon_profesor, nume_profesor) VALUES (2, '2870505123456', 'bogdan.iliescu@example.com', '0723444555', 'Bogdan Iliescu');
+INSERT INTO PROFESORI (ID_PROFESOR, cnp_profesor, email_profesor, telefon_profesor, nume_profesor) VALUES (3, '1791125123456', 'marius.enache@example.com', '0723666777', 'Marius Enache');
+INSERT INTO PROFESORI (ID_PROFESOR, cnp_profesor, email_profesor, telefon_profesor, nume_profesor) VALUES (4, '2910404123456', 'elena.mihai@example.com', '0723888999', 'Elena Mihai');
+INSERT INTO PROFESORI (ID_PROFESOR, cnp_profesor, email_profesor, telefon_profesor, nume_profesor) VALUES (5, '1830222123456', 'valentin.ciobanu@example.com', '0723000111', 'Valentin Ciobanu');
+INSERT INTO PROFESORI (ID_PROFESOR, cnp_profesor, email_profesor, telefon_profesor, nume_profesor) VALUES (6, '1800606123456', 'georgiana.pop@example.com', '0723222333', 'Georgiana Pop');
+INSERT INTO PROFESORI (ID_PROFESOR, cnp_profesor, email_profesor, telefon_profesor, nume_profesor) VALUES (7, '2900712123456', 'ovidiu.mocanu@example.com', '0723555777', 'Ovidiu Mocanu');
+
+--profesori-limbaje
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (1, 'Python');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (1, 'JavaScript');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (1, 'HTML & CSS');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (2, 'Java');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (2, 'HTML & CSS');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (2, 'Python');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (3, 'C++');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (3, 'Java');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (4, 'JavaScript');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (4, 'HTML & CSS');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (5, 'C++');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (5, 'Python');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (6, 'JavaScript');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (6, 'HTML & CSS');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (7, 'Java');
+INSERT INTO PROFESORI_LIMBAJE (id_profesor, nume_limbaj) VALUES (7, 'C++');
+commit ;
+--Scoli-Profesori
+-- Profesor 1 (Andreea Popa) predă la școlile 7 și 9
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (1, 1);  -- Bitschool Drumul Taberei
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (2, 1);  -- Bitschool Gheorgheni
+
+-- Profesor 2 (Bogdan Iliescu) predă la școlile 10 și 11
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (3, 2); -- Bitschool Iosefin
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (4, 2); -- Bitschool Soarelui
+
+-- Profesor 3 (Marius Enache) predă la școlile 13 și 14
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (5, 3); -- Bitschool Copou
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (6, 3); -- Bitschool Tatarasi
+
+-- Profesor 4 (Elena Mihai) predă la școlile 15 și 16
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (7, 4); -- Bitschool Tomis Nord
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (8, 4); -- Bitschool Faleza Nord
+
+-- Profesor 5 (Valentin Ciobanu) predă la școlile 17 și 18
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (9, 5); -- Bitschool Dorobanti
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (10, 5); -- alta scoala in Bucuresti
+
+-- Profesor 6 (Georgiana Pop) predă la școlile 9 și 13
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (2, 6);  -- Bitschool Gheorgheni
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (5, 6); -- Bitschool Copou
+
+-- Profesor 7 (Ovidiu Mocanu) predă la școlile 15, 16 și 18
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (7, 7); -- Bitschool Tomis Nord
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (8, 7); -- Bitschool Faleza Nord
+INSERT INTO SCOLI_PROFESORI (ID_SCOALA, ID_PROFESOR) VALUES (9, 7);
+
+
+--Grupe
+
+
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (1,1,  2, 'Web Development', 'Incepatori', 'Miercuri', TO_DATE('14:00','HH24:MI'), TO_DATE('16:00','HH24:MI'), 11);
+
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (2,6, 2, 'Frontend cu JavaScript', 'Incepatori', 'Marti', TO_DATE('14:00','HH24:MI'), TO_DATE('16:00','HH24:MI'), 14);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (3,2, 3, 'Programare OOP in Java', 'Avansati', 'Miercuri', TO_DATE('17:00','HH24:MI'), TO_DATE('19:00','HH24:MI'), 12);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (4,2, 4, 'Introducere in Python', 'Incepatori', 'Luni', TO_DATE('14:00','HH24:MI'), TO_DATE('16:00','HH24:MI'), 15);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (5,3, 6, 'Programare OOP in Java', 'Avansati', 'Joi', TO_DATE('10:00','HH24:MI'), TO_DATE('12:00','HH24:MI'), 10);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (6,3, 5, 'Algoritmica in C++', 'Avansati', 'Miercuri', TO_DATE('10:00','HH24:MI'), TO_DATE('12:00','HH24:MI'), 12);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (7, 3, 6, 'Programare OOP in Java', 'Avansati', 'Marti', TO_DATE('14:00','HH24:MI'), TO_DATE('16:00','HH24:MI'), 14);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (8,4, 7, 'Frontend cu JavaScript', 'Intermediari', 'Vineri', TO_DATE('17:00','HH24:MI'), TO_DATE('19:00','HH24:MI'), 11);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (9,4, 7, 'Web Development', 'Incepatori', 'Joi', TO_DATE('10:00','HH24:MI'), TO_DATE('12:00','HH24:MI'), 13);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (10,4, 8, 'Web Development', 'Incepatori', 'Marti', TO_DATE('17:00','HH24:MI'), TO_DATE('19:00','HH24:MI'), 9);
+
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (11,7, 7, 'Algoritmica in C++', 'Intermediari', 'Marti', TO_DATE('17:00','HH24:MI'), TO_DATE('19:00','HH24:MI'), 9);
+
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (12,7, 8, 'Algoritmica in C++', 'Intermediari', 'Marti', TO_DATE('15:00','HH24:MI'), TO_DATE('17:00','HH24:MI'), 9);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (13,7, 9, 'Programare OOP in Java', 'Avansati', 'Luni', TO_DATE('16:00','HH24:MI'), TO_DATE('18:00','HH24:MI'), 9);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (14,5, 9, 'Introducere in Python', 'Incepatori', 'Miercuri', TO_DATE('14:00','HH24:MI'), TO_DATE('16:00','HH24:MI'), 12);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (15,5, 10, 'Introducere in Python', 'Incepatori', 'Vineri', TO_DATE('17:00','HH24:MI'), TO_DATE('19:00','HH24:MI'), 9);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (16,1, 1, 'Frontend cu JavaScript', 'Intermediari', 'Luni', TO_DATE('10:00','HH24:MI'), TO_DATE('12:00','HH24:MI'), 12);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (17,1, 1, 'Introducere in Python', 'Incepatori', 'Vineri', TO_DATE('10:00','HH24:MI'), TO_DATE('12:00','HH24:MI'), 10);
+
+INSERT INTO GRUPE (ID_GRUPA, ID_PROFESOR, ID_SCOALA, CURS, CATEGORIE, ZI_GRUPA, ORA_INCEPUT, ORA_SFARSIT, CAPACITATE)
+VALUES (18,5, 3, 'Introducere in Python', 'Incepatori', 'Vineri', TO_DATE('10:00','HH24:MI'), TO_DATE('12:00','HH24:MI'), 10);
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (1, 2,1, 'Elena Ciobanu', '7909201306346', '0733591812', 'elena.ciobanu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (2, 2, 2, 'Bianca Mocanu', '6775461511564', '0782482563', 'bianca.mocanu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (3, 3, 3, 'Radu Iliescu', '5332309260086', '0745140327', 'radu.iliescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (4, 4, 4, 'Mihai Stan', '8470595878445', '0776950338', 'mihai.stan@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (5, 6, 5, 'Maria Georgescu', '5023176284285', '0798401634', 'maria.georgescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (6, 5, 6, 'Elena Popescu', '8473140475860', '0782350699', 'elena.popescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (7, 6, 7, 'Irina Iliescu', '1665393545781', '0784927824', 'irina.iliescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (8, 7, 8, 'Irina Ciobanu', '9136811593671', '0751853213', 'irina.ciobanu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (9, 7, 9, 'Elena Georgescu', '2113663003666', '0797795576', 'elena.georgescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (10, 8, 10, 'Maria Enache', '7808216771710', '0736145483', 'maria.enache@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (11, 7, 11, 'Cristian Popescu', '5827020851434', '0728539843', 'cristian.popescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (12, 8, 12, 'Vlad Georgescu', '2772234060458', '0772160251', 'vlad.georgescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (13, 9, 13, 'Elena Marinescu', '9773646953499', '0727546818', 'elena.marinescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (14, 9, 14, 'Radu Dumitrescu', '2140066008149', '0777455794', 'radu.dumitrescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (15, 10, 15, 'Stefan Ionescu', '4011768115254', '0778996833', 'stefan.ionescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (16, 1, 16, 'Mihai Iliescu', '7038387890445', '0797910336', 'mihai.iliescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (17, 1, 17, 'Vlad Ciobanu', '9566514539633', '0773469148', 'vlad.ciobanu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (18, 1, 16, 'Ana Ionescu', '1825876513366', '0788525368', 'ana.ionescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (19, 1, 17, 'Stefan Dumitrescu', '3890897725202', '0757071629', 'stefan.dumitrescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (20, 3, 3, 'Ana Ciobanu', '1933028633407', '0787318889', 'ana.ciobanu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (21, 2, 1, 'Elena Georgescu', '1640215382409', '0747293245', 'elena.georgescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (22, 6, 5, 'Andrei Dumitrescu', '4587335572367', '0735336920', 'andrei.dumitrescu@elevi.ro');
+
+INSERT INTO ELEVI (ID_ELEV, ID_SCOALA, ID_GRUPA, NUME_ELEV, CNP_ELEV, TELEFON_ELEV, EMAIL_ELEV)
+VALUES (23, 3, 18, 'Calin Georgescu', '4587535572367', '0709836920', 'calin.georgescu@elevi.ro');
+
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (1, 'Introducere in Python');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (2, 'Web Development');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (3, 'Introducere in Python');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (3, 'Algoritmica in C++');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (5, 'Introducere in Python');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (5, 'Web Development');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (6, 'Introducere in Python');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (7, 'Web Development');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (7, 'Frontend cu JavaScript');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (8, 'Web Development');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (11, 'Web Development');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (12, 'Algoritmica in C++');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (12, 'Introducere in Python');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (13, 'Algoritmica in C++');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (13, 'Introducere in Python');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (16, 'Web Development');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (18, 'Web Development');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (20, 'Web Development');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (22, 'Web Development');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (20, 'Frontend cu JavaScript');
+INSERT INTO ELEVI_CURSURI(ID_ELEV, NUME_CURS) VALUES (22, 'Frontend cu JavaScript');
+
+
+
+
+
+--testing
+-- SELECT *
+-- FROM ELEVI_CURSURI;
+--
+-- SELECT S.NUME_SCOALA, G.CURS, P.NUME_PROFESOR, P.ID_PROFESOR
+-- FROM SCOLI S
+-- JOIN GRUPE G ON G.ID_SCOALA = S.ID_SCOALA
+-- JOIN PROFESORI P ON P.ID_PROFESOR = G.ID_PROFESOR
+-- JOIN C##TEMABD.PROFESORI_LIMBAJE PL on P.ID_PROFESOR = PL.ID_PROFESOR;
+--
+-- SELECT S.NUME_SCOALA, G.ID_GRUPA, G.CURS
+-- FROM SCOLI S
+-- JOIN GRUPE G ON G.ID_SCOALA = S.ID_SCOALA;
+--
+-- SELECT E.NUME_ELEV, G.CURS, G.CATEGORIE
+-- FROM ELEVI E
+-- JOIN GRUPE G ON G.ID_GRUPA = E.ID_GRUPA;
+
+
+-- UPDATE GRUPE G
+-- SET G.CATEGORIE = 'Incepatori'
+-- WHERE G.ID_GRUPA = 17;
+--
+-- SELECT G.ID_GRUPA, G.CURS, E.ID_ELEV ,G.CATEGORIE
+-- FROM GRUPE G
+-- JOIN ELEVI E ON E.ID_GRUPA=G.ID_GRUPA;
+--
+--
+--
+-- COMMIT ;
+--
+--
+-- --DELETE FROM GRUPE WHERE ID_GRUPA IN (21, 22);
