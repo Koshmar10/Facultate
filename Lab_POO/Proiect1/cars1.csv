@@ -1,0 +1,10 @@
+id,brand,model,year,price,owner_id
+Dacia,Duster,2006,10000,0
+Toyota,Avensis,2009,12000,0
+Audi,RS7,2022,75000,0
+Mercedes,S-Class,2024,90000,1
+Ford,Fiesta,2006,5000,1
+Mitsubishi,Lancer,2011,6999,1
+BMW,X3,2004,45000,2
+Volkswagen,Golf,2015,15000,2
+Volkswagen,Passat,2016,10000,3

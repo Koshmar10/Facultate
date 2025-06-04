@@ -1,5 +1,4 @@
-id,name,email,phone,age
-1,Ion Popescu,ion.popescu@example.com,0722123456,35
-2,Maria Ionescu,maria.ionescu@example.com,0733123456,28
-3,Andrei Georgescu,andrei.georgescu@example.com,0744123456,40
-4,Elena Dumitru,elena.dumitru@example.com,0755123456,30
+id,cnp,nume,carIds
+3284321234576,Ion Popescu
+2347284234274,Maria Ionescu
+2347284234274,Maria Ionescu

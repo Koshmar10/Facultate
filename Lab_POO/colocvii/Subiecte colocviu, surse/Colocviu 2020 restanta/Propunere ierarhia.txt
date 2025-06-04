@@ -1,0 +1,9 @@
+
+Propunere ierarhie
+comenzi [id, nume, adresa, pret, timpLivrare, lista string pt denumire, list pt cantitate]
+	-> comenziMancare [numeLocal]
+		->mancareFastFood [discount]
+		->mancareRestaurant [bool optiuneTacamuri]
+	-> comenziMedicamente [lista bool esteAntibiotic]
+	-> comenziTigari [lista bool tipTutun] -> 0 clasic / 1 electrice sau invers
+Orice alta ierarhie cu sens este luata in considerare

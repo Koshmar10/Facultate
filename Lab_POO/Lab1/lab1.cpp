@@ -45,7 +45,7 @@ class Proprietar{
         Locuinta *locuinta;
     public:
         Proprietar(string nume= "Razvan", Locuinta *locuinta = nullptr)
-}
+};
 int main()
 {
     Camera c1("Baie", 13);

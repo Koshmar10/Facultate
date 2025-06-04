@@ -255,14 +255,9 @@ def main(stdscr):
     # Create command window
     cmd_win = curses.newwin(cmd_height, width, map_height, 0)
 
-    # Create a pad for the map|
-    # Add the game map to the pad
-      # Ignore errors caused by invalid characters or out-of-bounds writes
-
     # Refresh the windows to display them
     cmd_win.refresh()
     map_win.refresh()
-    # Example of writing text to the screen
 
 
     screen.refresh()

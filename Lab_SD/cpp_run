@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Navigate to the directory containing the C++ file
+cd /home/petru/Facultate/Lab_SD || exit
+
+# Compile the C++ file
+g++ -o cbin scripts/"$1" src/*.cpp
+if [ $? -eq 0 ]; then
+    echo "Compilation successful. Running the program..."
+    ./cbin
+else
+    echo "Compilation failed."
+fi
+rm cbin

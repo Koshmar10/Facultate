@@ -158,5 +158,6 @@ int main()
     myList.printList();
     cout<<myList.getHead()<<" "<<myList.getLast()<<"\n";
     // myList.~LinkedList(); // Destructor will be called automatically
+    
     return 0;
 }

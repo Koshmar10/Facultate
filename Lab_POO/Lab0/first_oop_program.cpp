@@ -44,18 +44,16 @@ class Car {
     friend ostream& operator<<(ostream &out, Car&car);
     
     //Misc functions
-    friend istream& assignLicensePlate(istream &in){
-        string l;
-        in>>l;
-        if(l == ""){
-            this->"caoie";
-
-        };
-        return in;
-    }
     
     //Constructors
-    Car(string make, string model, int fabricationYear, string licensePlate, string owner, int miles);
+    Car(string make = "", string model = "", int fabricationYear = 0, string licensePlate = "", string owner = "", int miles=0){
+        this -> make = make;
+        this -> model = model;
+        this -> fabricationYear = fabricationYear;
+        this -> licensePlate = licensePlate;
+        this -> owner = owner;
+        this -> miles = miles;
+    };
     Car(const Car &x);
     //~Car();    
 };
@@ -78,7 +76,7 @@ istream& operator>>(istream &in, Car &car){
     cout<<"\nCar milage: ";
     in>>car.miles;
     cout<<"\nEnter license plate: ";
-    car.assignLicensePlate(in, car);
+    in>>car.licensePlate;
     cout<<"\nEnter owner name: ";
     in>>car.owner;
     return in;    
@@ -94,15 +92,6 @@ ostream& operator<<(ostream &out, Car &car){
 }
 
 
-Car::Car(string make = "", string model = "", int fabricationYear = 0, string licensePlate = "", string owner = "", int miles=0){
-    this -> make = make;
-    this -> model = model;
-    this -> fabricationYear = fabricationYear;
-    this -> licensePlate = licensePlate;
-    this -> owner = owner;
-    this -> miles = miles;
-
-}
 Car::Car(const Car &x){
     this -> make = x.make;
     this -> model = x.model;
@@ -113,8 +102,8 @@ Car::Car(const Car &x){
 }
 
 int main(){
-    Car petruCar("Audi", "A3", 2009, "CT10UDS", "Mara");
-    Car maraCar(petruCar);   
+    //Car petruCar("Audi", "A3", 2009, "CT10UDS", "Mara");
+    //Car maraCar(petruCar);   
     Car bossCar;
     cin>>bossCar;
     cout<<bossCar;   
