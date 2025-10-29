@@ -1,0 +1,26 @@
+{% extends '../base.html' %} {% load static %} {% block head_extra %}
+
+<link rel="stylesheet" href="{% static 'css/about/style.css' %}" />
+{% endblock head_extra %} {% block content %}
+<div>
+  <div class="about-banner">
+    <img
+      class="about-img"
+      src="{% static 'images/pczone-about-banner.png' %}"
+      alt="PcZone banner"
+    />
+  </div>
+  <h1 class="home-title">Despre Echipa PcZone</h1>
+  <section id="noi">
+    <h2>Cine suntem noi?</h2>
+    <p>noi</p>
+  </section>
+  <section id="misiune">
+    <h2>Misiunea noastrea</h2>
+  </section>
+  <section id="comunitate">
+    <h2>Comunitate</h2>
+  </section>
+</div>
+
+{% endblock content %}

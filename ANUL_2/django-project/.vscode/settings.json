@@ -1,0 +1,48 @@
+{
+  // 🐍 Python environment
+  "python.defaultInterpreterPath": ".venv/bin/python",
+  "python.terminal.activateEnvironment": true,
+
+  // 🧹 Formatting
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+
+  // 🪶 Linting
+  "ruff.enable": true,
+  "ruff.lint.enable": true,
+  "ruff.format.enable": false,        // Black does formatting
+  "python.linting.enabled": false,    // Avoid duplicate warnings
+
+  // 🧩 Django templates
+  "files.associations": {
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*.*.html": "django-html"
+  },
+
+  // 🔍 Type checking
+  "python.analysis.typeCheckingMode": "basic",
+
+  // 🧠 Misc
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/migrations/__pycache__": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+
+  // 💻 Terminal
+  "terminal.integrated.env.linux": {
+    "DJANGO_SETTINGS_MODULE": "pczone.settings"
+  },
+  "terminal.integrated.env.windows": {
+    "DJANGO_SETTINGS_MODULE": "pczone.settings"
+  },
+  "python.REPL.enableREPLSmartSend": false
+}

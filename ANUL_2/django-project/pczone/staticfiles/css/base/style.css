@@ -1,0 +1,145 @@
+:root {
+    --theme-900: #46403B;
+    --theme-700: #828173;
+    --theme-500: #D89B78;
+    --theme-400: #E14D32;
+    --theme-300: #B81514;
+
+    --color-primary: var(--theme-400);
+    --color-primary-strong: var(--theme-300);
+    --color-accent: var(--theme-500);
+    --color-muted: var(--theme-700);
+    --color-ink: var(--theme-900);
+
+    --bg: #ffffff;
+    --surface: #f8f6f4;
+    --text: var(--color-ink);
+    --text-muted: var(--color-muted);
+    --border: rgba(70,64,59,0.08);
+    --focus-ring: color-mix(in srgb, var(--color-primary) 40%, transparent);
+
+    --font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-size-base: 16px;
+    --line-height: 1.5;
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --radius: 8px;
+
+    --ease: cubic-bezier(.2,.8,.2,1);
+    --transition-fast: 150ms var(--ease);
+    --transition-base: 250ms var(--ease);
+
+    font-family: var(--font-family);
+}
+body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    max-height: auto;
+    width: 100vw;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dropdown {
+    background-color: var(--color-ink);
+    padding: 1rem 0.8rem;
+}
+.dropbtn {
+    all: unset;
+    font-family: var(--font-family);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--surface);
+    background-color: var(--color-ink);
+    
+}
+.dropbtn:hover {
+    cursor: pointer;
+}
+.dropdown-content a {
+    text-decoration: none;
+    color: var(--surface);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.dropdown-content a:hover{
+    color: var(--color-accent);
+}
+.dropdown-content {
+    
+    padding-top: 0.6rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    padding-bottom: 1.2rem;
+    gap: 0.4rem;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: var(--color-ink);
+    color: var(--surface);
+    opacity: 0;
+    transform: scaleY(0.8);
+    pointer-events: none;
+    transform-origin: top center;
+    will-change: transform, opacity;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.dropdown-content > .sub-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-top: 0.3rem;
+    padding-right: 0.2rem;
+}
+.dropdown-content > .sub-options > a {
+    font-size: 1.2rem;
+    opacity: 0.9;   
+    margin-left: 0.4rem;
+}
+/* animații pentru intrare/ieșire */
+@keyframes dropdown-enter {
+  from { opacity: 0; transform: translateY(-6px) scaleY(0.95); }
+  to   { opacity: 1; transform: translateY(0)    scaleY(1);    }
+}
+@keyframes dropdown-exit {
+  from { opacity: 1; transform: translateY(0)    scaleY(1);    }
+  to   { opacity: 0; transform: translateY(-6px) scaleY(0.95); }
+}
+
+/* show uses enter by default */
+.show {
+    opacity: 1;
+    transform: scaleY(1);
+    pointer-events: auto;
+    display: flex;
+    animation: dropdown-enter var(--transition-fast) both;
+}
+
+/* when exiting while still having .show, override animation to exit */
+.show.exiting {
+    /* override to play exit animation */
+    animation: dropdown-exit var(--transition-fast) both;
+}
+
+/* keep a safe rule for .exiting alone (edge cases) */
+.dropdown-content.exiting {
+    animation: dropdown-exit var(--transition-fast) both;
+}
+
+.base-footer {
+    
+    width: 100%;
+    height: 10%;
+ 
+}
+.base-footer > p {
+    color: var(--surface);
+}
+.container {
+    height: auto;
+}

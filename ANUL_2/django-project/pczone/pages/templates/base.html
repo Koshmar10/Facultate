@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'css/base/style.css' %}" />
+    <script src="{% static 'js/base/main.js' %}" defer></script>
+    <title>{% block title %}PCZone{% endblock %}</title>
+    {% block head_extra %}{% endblock %}
+  </head>
+  <body>
+    <header>
+      {% block header_main%}
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <a href={% url "home" %}>Acasa</a>
+            <div class ="sub-options">
+            <a href="{% url "home" %}#produse-populare">Produse Populare</a>
+            <a href="{% url "home" %}#promotii">Promotii</a>
+            <a href="{% url "home" %}#build-your-own">Build Your Own</a>
+            <a href="{% url "home" %}#testimoniale">Testimoniale</a>
+            </div>
+
+          <a href={% url "products" %} >Produse</a>
+          
+          
+          <a href={% url "about" %}>Despre noi</a>
+          <div class ="sub-options">
+            <a href="{% url "about" %}#noi">Cine Suntem</a>
+            <a href="{% url "about" %}#misiune">Misiune</a>
+            <a href="{% url "about" %}#comunitate">Comunitate</a>
+          </div>
+
+
+          <a href={% url "contact" %}>Contact</a>
+          <a href={% url "cart" %}>Cos virtual</a>
+          
+        </div>
+      </div>
+      {% endblock header_main %} 
+      {% block header_extra%} 
+      {% endblock header_extra %}
+    </header>
+
+    <main class="container">{% block content %}{% endblock content %}</main>
+
+    <footer class="base-footer">
+      {% block footer %} 
+      <p>
+        {{ ip_client }}
+      </p>
+      {% endblock %}
+    </footer>
+  </body>
+</html>

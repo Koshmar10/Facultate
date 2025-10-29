@@ -1,0 +1,43 @@
+{% extends "../base.html" %} {% load static %} {% block head_extra %}
+
+<link rel="stylesheet" href="{% static 'css/home/style.css' %}" />
+{% endblock head_extra %} {% block content %}
+<div class="home-container">
+  <h1 class="home-title">PcZone</h1>
+  <section class="hero-section">
+    <h2>Hero Section</h2>
+
+    <div class="hero-banner">
+      <img
+        class="hero-img"
+        src="{% static 'images/pczone-banner.png' %}"
+        alt="PcZone banner"
+      />
+    </div>
+    <p>
+      PcZone este un magazin online de echipamente și accesorii pentru
+      calculatoare, unde utilizatorii vor putea vizualiza, căuta și cumpăra
+      produse precum componente hardware, periferice și laptopuri.
+    </p>
+
+    <p>
+      Platforma va include o bază de date cu produse, o interfață prietenoasă
+      pentru utilizatori și o secțiune de administrare pentru gestionarea
+      stocurilor și comenzilor
+    </p>
+  </section>
+  <section id="produse-populare">
+    <h2>Produse Populare</h2>
+  </section>
+  <section id="promotii">
+    <h2>Promotii Speciale</h2>
+  </section>
+  <section id="build-your-own">
+    <h2>Build Your Own</h2>
+  </section>
+  <section id="testimoniale">
+    <h2>Testimoniale</h2>
+  </section>
+</div>
+
+{% endblock content %}

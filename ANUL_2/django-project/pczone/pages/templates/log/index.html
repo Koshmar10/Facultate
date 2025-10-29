@@ -1,0 +1,110 @@
+{% extends "../base.html" %} {% load static %} {% block content %}
+<div>
+  <h1>Server Logs</h1>
+  {% if num_accesari %}
+  <h3>Numar accesari: {{num_accesari}}</h3>
+  {% endif %}
+</div>
+<section>
+  <h2>Parametri</h2>
+  <p>Număr parametri: {{ param_count }}</p>
+  <ul>
+    {% for name in param_names %}
+    <li>{{ name }}</li>
+    {% empty %}
+    <li>Niciun parametru primit.</li>
+    {% endfor %}
+  </ul>
+</section>
+{% if has_error %}
+<div>
+  <h2>Errors</h2>
+  <p>{{error_msg}}</p>
+</div>
+
+{% else %} {% if as_table %}
+<table class="logs-table">
+  <thead>
+    <tr>
+      {% if column %} {% for col in column %} {% if col == "id" %}
+      <th>ID</th>
+      {% elif col == "ip_client" %}
+      <th>IP</th>
+      {% elif col == "data" %}
+      <th>Date</th>
+      {% elif col == "url" %}
+      <th>URL</th>
+      {% else %}
+      <th>{{ col }}</th>
+      {% endif %} {% endfor %} {% else %}
+      <th>ID</th>
+      <th>IP</th>
+      <th>Date</th>
+      <th>URL</th>
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for log in logs %}
+    <tr>
+      {% if column %} {% for col in column %} {% if col == "id" %}
+      <td>{{ log.id }}</td>
+      {% elif col == "ip_client" %}
+      <td>{{ log.ip_client }}</td>
+      {% elif col == "data" %}
+      <td>{{ log.data }}</td>
+      {% elif col == "url" %}
+      <td>{{ log.url }}</td>
+      {% else %}
+      <td>{{ log }}</td>
+      {% endif %} {% endfor %} {% else %}
+      <td>{{ log.id }}</td>
+      <td>{{ log.ip_client }}</td>
+      <td>{{ log.data }}</td>
+      <td>{{ log.url }}</td>
+      {% endif %}
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="{% if column %}{{ column|length }}{% else %}4{% endif %}">
+        No logs.
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class="logs">
+  {% for log in logs %}
+  <div class="log">
+    {% if column %} {% for col in column %} {% if col == "id" %}
+    <div class="log-id"><strong>ID:</strong> {{ log.id }}</div>
+    {% elif col == "ip_client" %}
+    <div class="log-ip"><strong>IP:</strong> {{ log.ip_client }}</div>
+    {% elif col == "data" %}
+    <div class="log-date"><strong>Date:</strong> {{ log.data }}</div>
+    {% elif col == "url" %}
+    <div class="log-url"><strong>URL:</strong> {{ log.url }}</div>
+    {% else %}
+    <div class="log-full">{{ log }}</div>
+    {% endif %} {% endfor %} {% else %}
+    <div class="log-id"><strong>ID:</strong> {{ log.id }}</div>
+    <div class="log-ip"><strong>IP:</strong> {{ log.ip_client }}</div>
+    <div class="log-date"><strong>Date:</strong> {{ log.data }}</div>
+    <div class="log-url"><strong>URL:</strong> {{ log.url }}</div>
+    {% endif %}
+  </div>
+  {% empty %}
+  <div>No logs.</div>
+  {% endfor %}
+</div>
+{% endif %} {% if detalii_accesari %}
+<section>
+  <h2>Detalii accesari</h2>
+  <ul>
+    {% for dt in detalii_accesari %}
+    <li>{{ dt }}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %} {% endif %} {% endblock content %}

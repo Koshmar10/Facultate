@@ -1,0 +1,21 @@
+
+.hero-banner{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    background-color: var(--theme-900);
+    /* slightly darker */
+    background-color: color-mix(in srgb, var(--theme-900) 40%, black 60%);
+    justify-content: center;
+    align-items: center;
+}
+.hero-img {
+    max-width: auto;
+    max-height: 40rem;
+}
+.home-container{
+    width: 100%;
+}
+.hero-section{
+    width: 100%;
+}

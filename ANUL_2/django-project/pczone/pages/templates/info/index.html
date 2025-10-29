@@ -1,0 +1,8 @@
+{% extends "../base.html" %} {% load static %} {% block head_extra %}
+<link rel="stylesheet" href="{% static 'css/info/style.css' %}" />
+{% endblock head_extra %} {% block content %}
+<div>
+  <h1>Informatii despre server</h1>
+  {% if data %} {{data}} {% endif %}
+</div>
+{% endblock content %}
